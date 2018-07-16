@@ -11,9 +11,9 @@ Activity lifecycle i.e.
 
 onCreate() -> onStart() -> onResume -> onPause() -> onStop() -> onDestroyed() 
 
-                                   ↑                                            ↓                                                       
+             ↑                                            ↓                                                       
 
-                                    <----------------------   onRestart()
+                  <----------------------   onRestart()
 
 
 
@@ -21,7 +21,7 @@ Fragment lifecycle i.e.
 
 onAttach() -> onCreate() -> onCreateView() -> onActivityCreated() -> onStart() -> onResume -> onPause() -> onStop() -> 
 
-                                                      ↑              ↑<----------------------------------------------↓     
+                                ↑                                     ↑<----------------------------------------------↓     
 
             onDestroyed() -> onDestroyedView() -> onDetach() 
 
