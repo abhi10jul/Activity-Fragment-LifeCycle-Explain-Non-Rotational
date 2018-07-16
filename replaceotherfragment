@@ -1,0 +1,122 @@
+Activity and Fragment lifecycle description & Explain How to work lifecycle if load Fragment and Activity and Replace another fragment 
+                         
+                         Portrait Mode i.e (Non-rotational)
+                         
+                         
+1. First, create MainActivity and one Fragment which has all lifecycle include in Fragment and Activity.
+
+Activity lifecycle i.e.
+
+onCreate() -> onStart() -> onResume -> onPause() -> onStop() -> onDestroyed() 
+
+             ↑                                            ↓                                                       
+
+                  <----------------------   onRestart()
+
+
+
+Fragment lifecycle i.e.
+
+onAttach() -> onCreate() -> onCreateView() -> onActivityCreated() -> onStart() -> onResume -> onPause() -> onStop() -> 
+
+                                 ↑                                     ↑<----------------------------------------------↓     
+
+            onDestroyed() -> onDestroyedView() -> onDetach() 
+
+                                               
+
+If Activity and Fragment load at the same time when calling the lifecycle method i.e
+
+Activity call- >                           
+
+                                                         onCreate() ->(Activity)
+
+then call Fragment method ->           ↓
+
+                                                         onAttach() ->(Fragment)
+
+                                                         onCreate() -> (Fragment)
+
+                                                         onCreateView() ->(Fragment)
+
+                                                         onActivityCreated() ->(Fragment)
+
+                                                         onStart() ->(Fragment)
+
+then Activity call ->                         ↓
+
+                                                         onStart() ->(Activity)
+
+                                                         onResume() ->(Activity)
+
+then call Fragment method ->          ↓
+
+                                                        onResume() ->(Fragment)
+
+When user click another fragment-2 then lifecycle how to works and call method
+another Fragment-2 call ->               ↓
+
+                                                         onAttach() ->(Fragment-2)
+
+                                                         onCreate() ->(Fragment-2)
+
+then Fragment-1 method ->              ↓
+
+                                                        onPause() ->(Fragment-1)
+
+                                                        onStop() ->(Fragment-1)
+
+                                                        onDestroyView() ->(Fragment-1)
+
+                                                        onDestroyed() ->(Fragment-1)  
+
+                                                        onDettach() ->(Fragment-1)    
+
+then Fragment-2 method ->                         ↓
+
+                                                        onCreateView() ->(Fragment-2)
+
+                                                        onActivityCreated() ->(Fragment-2)
+
+                                                        onStart() ->(Fragment-2)
+
+                                                        onResume() ->(Fragment-2)
+
+
+
+When the user clicks before fragment-1 then lifecycle how to works and call method
+ Fragment-1 call ->                           ↓
+
+                                                         onAttach() ->(Fragment-2)
+
+                                                         onCreate() ->(Fragment-2)
+
+then Fragment-2 method ->              ↓
+
+                                                        onPause() ->(Fragment-1)
+
+                                                        onStop() ->(Fragment-1)
+
+                                                        onDestroyView() ->(Fragment-1)
+
+                                                        onDestroyed() ->(Fragment-1)  
+
+                                                        onDettach() ->(Fragment-1)    
+
+then Fragment-1 method ->               ↓
+
+                                                        onCreateView() ->(Fragment-2)
+
+                                                        onActivityCreated() ->(Fragment-2)
+
+                                                        onStart() ->(Fragment-2)
+
+                                                        onResume() ->(Fragment-2)
+
+
+
+
+
+*******************************************************************************
+
+                                                         Thank you
