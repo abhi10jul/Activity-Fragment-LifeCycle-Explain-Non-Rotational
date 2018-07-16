@@ -1,7 +1,7 @@
 Activity and Fragment lifecycle description & Explain How to work lifecycle if load Fragment and Activity and Press the home button and close the application
                          
                          
-                                   Portrait Mode i.e (Non-rotational)
+                                    Portrait Mode i.e (Non-rotational)
                          
                          
 1. First, create MainActivity and one Fragment which has all lifecycle include in Fragment and Activity.
