@@ -1,0 +1,71 @@
+                    How to work lifecycle if load Activity and call another Activity
+
+
+
+                    Portrait Mode i.e (Non-rotational)
+                    
+                    
+
+1. First, create MainActivity which has all lifecycle of Activity.
+
+
+Activity lifecycle i.e.
+
+onCreate() -> onStart() -> onResume -> onPause() -> onStop() -> onDestroyed() 
+              ↑                                            ↓                                                       
+                 <----------------------   onRestart()
+                 
+
+If Activity calling the lifecycle method i.e
+
+
+Activity-1 call- >                                        onCreate() ->(Activity-1)                 
+                                                          onStart() ->(Activity-1)
+                                                          onResume() ->(Activity-1)
+                                                          
+                                                          
+When user click event and call another activity-2 then lifecycle how to works and call method
+
+
+Activity-1 call- >                                       onPause() ->(Activity-1)                 
+                                                                 ↓
+Activity-2 call- >                                       onCreate() ->(Activity-2)                 
+                                                          onStart() ->(Activity-2)
+                                                          onResume() ->(Activity-2)
+                                                               ↓
+Activity-1 call- >                                        onStop() ->(Activity-1)    
+
+                                                                 
+When the user clicks onBackPressed then lifecycle how to works and call method
+
+Activity-2 call- >                           onPause() ->(Activity-2)                 
+                                                ↓
+Activity-1 call- >                           onRestart() ->(Activity-1)                 
+                                              onStart() ->(Activity-1)
+                                              onResume() ->(Activity-1)
+                                                  ↓
+Activity-2 call- >                           onStop() ->(Activity-2)      
+                                             onDestroy() ->(Activity-2)     
+                                                                 
+                                                                 
+When the press Home Button then lifecycle how to works and call method
+
+Activity-1 call- >                           onPause() ->(Activity-1)                 
+                                             onStop() ->(Activity-1)
+
+When the reOpen the app to background then lifecycle how to works and call method
+
+Activity-1 call- >                           onRestart() ->(Activity-1)                 
+                                             onStart() ->(Activity-1)
+                                             onResume() ->(Activity-1)
+                                             
+
+When the close the app or remove the app to background then lifecycle how to works and call method
+
+Activity-1 call- >                           onPause() ->(Activity-1)                 
+                                             onStop() ->(Activity-1)            
+                                             onDestroy() ->(Activity-1)
+
+
+*******************************************************************************
+                                                         Thank you
