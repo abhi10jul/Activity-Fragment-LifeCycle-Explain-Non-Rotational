@@ -1,0 +1,132 @@
+Activity and Fragment lifecycle description & Explain How to work lifecycle if load Fragment and Activity and Press the home button and close the application
+                         
+                         
+                         Portrait Mode i.e (Non-rotational)
+                         
+                         
+1. First, create MainActivity and one Fragment which has all lifecycle include in Fragment and Activity.
+
+
+Activity lifecycle i.e.
+
+onCreate() -> onStart() -> onResume -> onPause() -> onStop() -> onDestroyed() 
+
+                                   ↑                                            ↓                                                       
+
+                                    <----------------------   onRestart()
+
+
+
+Fragment lifecycle i.e.
+
+onAttach() -> onCreate() -> onCreateView() -> onActivityCreated() -> onStart() -> onResume -> onPause() -> onStop() -> 
+
+                                                      ↑              ↑<----------------------------------------------↓     
+
+            onDestroyed() -> onDestroyedView() -> onDetach() 
+
+                                               
+
+If Activity and Fragment load at the same time when calling the lifecycle method i.e
+
+Activity call- >                             
+
+                                                         onCreate() ->(Activity)
+
+then call Fragment method ->                                    ↓
+
+                                                         onAttach() ->(Fragment)
+
+                                                         onCreate() -> (Fragment)
+
+                                                         onCreateView() ->(Fragment)
+
+                                                         onActivityCreated() ->(Fragment)
+
+                                                         onStart() ->(Fragment)
+
+then Activity call ->                                              ↓
+
+                                                         onStart() ->(Activity)
+
+                                                         onResume() ->(Activity)
+
+then call Fragment method ->                                       ↓
+
+                                                        onResume() ->(Fragment)
+
+When user press home button & run in background then lifecycle how to works and call method
+ Fragment call ->                                                 ↓
+
+                                                         onPause() ->(Fragment)
+
+then call Activity method ->                                      ↓
+                
+                                                        onPause() ->(Activity)
+
+ Fragment call ->                                                ↓
+
+                                                         onStop() ->(Fragment)
+
+then call Activity method ->                                     ↓
+
+                                                        onStop() ->(Activity)
+
+
+
+When user ReOpen application then lifecycle how to works and call method
+Activity method ->                                                ↓
+
+                                                        onRestart() ->(Activity)
+
+ Fragment call ->                                               ↓
+
+                                                         onStart() ->(Fragment)
+
+then Activity call ->                                           ↓
+
+                                                         onStart() ->(Activity)
+
+                                                         onResume() ->(Activity)
+
+then call Fragment method ->                                    ↓
+
+                                                        onResume() ->(Fragment)                          
+
+
+
+
+When user close application then lifecycle how to works and call method
+ Fragment call ->                                                 ↓
+
+                                                         onPause() ->(Fragment)
+
+then Activity call ->                                           ↓
+
+                                                         onPause() ->(Activity)
+
+then call Fragment method ->                                    ↓
+
+                                                        onStop() ->(Fragment)                          
+
+then Activity call ->                                            ↓
+
+                                                         onStop() ->(Activity)
+
+then call Fragment method ->                                    ↓
+
+                                                        onDestroyView() ->(Fragment)
+
+                                                        onDestroyed() ->(Fragment)  
+
+                                                        onDettach() ->(Fragment)    
+
+then Activity call ->                                            ↓
+
+                                                         onDestroyed() ->(Activity)
+
+
+
+*******************************************************************************
+
+                                                         Thank you
